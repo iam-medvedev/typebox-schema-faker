@@ -1,0 +1,9 @@
+{
+  "name": "typebox-schema-faker",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "^1.2.16",
+    "typescript": "^5.8.3"
+  }
+}

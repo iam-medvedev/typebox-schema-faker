@@ -2,8 +2,16 @@
   "name": "typebox-schema-faker",
   "module": "src/index.ts",
   "type": "module",
+  "dependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "randexp": "^0.5.3"
+  },
   "devDependencies": {
+    "@sinclair/typebox": "^0.34.35",
     "@types/bun": "^1.2.16",
     "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@sinclair/typebox": "^0.34.35"
   }
 }

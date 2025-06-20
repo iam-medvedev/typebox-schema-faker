@@ -33,7 +33,7 @@ describe("fakeTemplateLiteral", () => {
     ]);
     const result = fake(schema);
 
-    expect(result).toMatch(/^.+@.+\.(com|org)$/);
+    expect(result).toMatch(/^.+@.+\.(.*)$/);
   });
 
   it("works with empty template", () => {

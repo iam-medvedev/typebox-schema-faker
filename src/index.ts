@@ -17,6 +17,7 @@ import { fakeOptional } from "./schema/optional";
 import { fakePromise } from "./schema/promise";
 import { fakeReadonly } from "./schema/readonly";
 import { fakeRecord } from "./schema/record";
+import { fakeRegExp } from "./schema/regexp";
 import { fakeString } from "./schema/string";
 import { fakeSymbol } from "./schema/symbol";
 import { fakeTemplateLiteral } from "./schema/template-literal";
@@ -143,7 +144,7 @@ export function fake<T extends TSchema>(
     // return fakeRef(schema);
   }
   if (TypeGuard.IsRegExp(schema)) {
-    // return fakeRegExp(schema);
+    return fakeRegExp(schema);
   }
   if (TypeGuard.IsString(schema)) {
     return fakeString(schema);

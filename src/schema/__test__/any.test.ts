@@ -36,7 +36,7 @@ describe("fakeAny", () => {
 
   it("can generate dates", () => {
     const schema = Type.Any();
-    const results = Array.from({ length: 20 }, () => fake(schema));
+    const results = Array.from({ length: 100 }, () => fake(schema));
 
     const hasDate = results.some((r) => r instanceof Date);
     expect(hasDate).toBe(true);

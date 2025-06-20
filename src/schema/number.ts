@@ -8,10 +8,9 @@ import type { FakerFn } from "../types";
 export const fakeNumber: FakerFn<TNumber> = (schema) => {
   const min = schema.minimum ?? 0;
   const max = schema.maximum ?? min + 100;
-
   const value = faker.number.float({ min, max });
 
-  if (schema.multipleOf) {
+  if (schema.multipleOf && schema.multipleOf > 0) {
     return Math.round(value / schema.multipleOf) * schema.multipleOf;
   }
 

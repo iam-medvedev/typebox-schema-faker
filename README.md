@@ -11,8 +11,6 @@ Generate fake data from [TypeBox](https://github.com/sinclairzx81/typebox) schem
     - [Recursive Schemas](#recursive-schemas)
     - [Configuration Options](#configuration-options)
   - [Supported TypeBox Schemas](#supported-typebox-schemas)
-  - [String Formats](#string-formats)
-  - [RegExp Support](#regexp-support)
   - [API](#api)
     - [`fake`](#fake)
       - [Parameters](#parameters)
@@ -132,8 +130,12 @@ const tree = fake(treeNodeSchema);
 
 ```ts
 const options = {
-  maxDepth: 2, // Maximum recursion depth (default: 3)
-  probability: 0.7, // Probability optional fields are defined (default: 0.5)
+  /** Chance (0-1) that optional fields are undefined (default: 0.5) */
+  probability: 0.7,
+  /** Maximum recursion depth before stopping generation (default: 3) */
+  maxDepth: 2,
+  /** The seed number can be used to generate reproducible values */
+  seed: 999,
 };
 
 const result = fake(schema, options);
@@ -176,30 +178,6 @@ const result = fake(schema, options);
 | `Type.Ref()`             | ❌     | Not yet implemented                                   |
 | `Type.Transform()`       | ❌     | Not yet implemented                                   |
 | `Type.Unsafe()`          | ❌     | Not yet implemented                                   |
-
-## String Formats
-
-| Format      | Example Output                           |
-| ----------- | ---------------------------------------- |
-| `email`     | `"john.doe@example.com"`                 |
-| `uuid`      | `"550e8400-e29b-41d4-a716-446655440000"` |
-| `url`       | `"https://example.com"`                  |
-| `date-time` | `"2025-01-15T10:30:00.000Z"`             |
-
-## RegExp Support
-
-Generate strings that match regular expression patterns:
-
-```ts
-const phonePattern = fake(Type.RegExp(/^\+?[\d\s\-\(\)]{10,}$/));
-// "+1 (555) 123-4567"
-
-const emailPattern = fake(Type.RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/));
-// "user@domain.com"
-
-const uuidPattern = fake(Type.RegExp(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i));
-// "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
-```
 
 ## API
 

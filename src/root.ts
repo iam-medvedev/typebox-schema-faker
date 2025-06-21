@@ -1,5 +1,6 @@
 import { type Static, type TSchema, Kind, TypeGuard, TypeBoxError } from '@sinclair/typebox';
 import type { FakerContext, FakerOptions } from './types';
+import { castSchema } from './cast';
 import { fakeAny } from './schema/any';
 import { fakeArray } from './schema/array';
 import { fakeBigInt } from './schema/bigint';
@@ -41,6 +42,7 @@ export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: 
     ...opts,
   };
 
+  // Known kinds
   if (TypeGuard.IsRecursive(schema)) {
     return fakeRecursive(schema, ctx, options);
   }
@@ -127,6 +129,12 @@ export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: 
   }
   if (TypeGuard.IsVoid(schema)) {
     return fakeVoid(schema, ctx, options);
+  }
+
+  // Unknown kinds, but known types, we can cast it
+  const castedSchema = castSchema(schema);
+  if (castedSchema) {
+    return rootFake(castedSchema, ctx, options);
   }
 
   throw new TypeBoxError(`Unknown or unsupported schema type: ${schema[Kind]}`);

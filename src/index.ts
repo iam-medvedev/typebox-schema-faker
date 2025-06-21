@@ -17,6 +17,6 @@ import type { FakerOptions } from './types';
  * fake(nameSchema); // "a7B9x2"
  * ```
  */
-export function fake<T extends TSchema>(schema: T, options: FakerOptions = {}): Static<T> {
-  return rootFake(schema, createContext(), options);
+export function fake<T extends TSchema>(schema: T, options: Partial<FakerOptions> = {}): Static<T> {
+  return rootFake(schema, createContext({ seed: options.seed }), options);
 }

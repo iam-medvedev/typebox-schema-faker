@@ -205,7 +205,11 @@ const uuidPattern = fake(Type.RegExp(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a
 
 ### `fake`
 
-`fake<T>(schema: T, options?: Options): Static<T>`
+Signature:
+
+```ts
+function fake<T extends TSchema>(schema: T, options: Partial<FakerOptions> = {}): Static<T>;
+```
 
 Generates fake data matching the provided TypeBox schema.
 
@@ -217,10 +221,14 @@ Generates fake data matching the provided TypeBox schema.
 #### Options
 
 ```ts
-type Options = {
-  probability?: number; // Chance optional fields are defined (0-1, default: 0.5)
-  maxDepth?: number; // Maximum recursion depth (default: 3)
-};
+export interface FakerOptions {
+  /** Chance (0-1) that optional fields are undefined (default: 0.5) */
+  probability: number;
+  /** Maximum recursion depth before stopping generation (default: 3) */
+  maxDepth: number;
+  /** The seed number can be used to generate reproducible values */
+  seed?: number;
+}
 ```
 
 ## License

@@ -1,5 +1,4 @@
 import type { TArray } from '@sinclair/typebox';
-import { faker } from '@faker-js/faker';
 import type { FakerFn } from '../types';
 import { rootFake } from '../root';
 import { EmptyRecursiveItem } from '../symbols';
@@ -10,7 +9,7 @@ import { EmptyRecursiveItem } from '../symbols';
 export const fakeArray: FakerFn<TArray> = (schema, ctx, options) => {
   const min = schema.minItems ?? 0;
   const max = schema.maxItems ?? Math.max(min + 3, 5);
-  const length = faker.number.int({ min, max });
+  const length = ctx.faker.number.int({ min, max });
 
   return Array.from({ length }, () => rootFake(schema.items, ctx, options)).filter((el) => el !== EmptyRecursiveItem);
 };

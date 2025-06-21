@@ -1,6 +1,5 @@
 import { type TRecord, TypeBoxError } from '@sinclair/typebox';
-import { faker } from '@faker-js/faker';
-import type { FakerFn } from '../types';
+import type { FakerFn, FakerContext } from '../types';
 import { rootFake } from '../root';
 
 /**
@@ -10,10 +9,10 @@ export const fakeRecord: FakerFn<TRecord> = (schema, ctx, options) => {
   const result: any = {};
 
   // Generate X random entries
-  const entryCount = faker.number.int({ min: 1, max: 5 });
+  const entryCount = ctx.faker.number.int({ min: 1, max: 5 });
   for (let i = 0; i < entryCount; i++) {
     // Generate key based on the key schema
-    const key = generateRecordKey(schema);
+    const key = generateRecordKey(schema, ctx);
 
     // Generate value based on the pattern schema
     const patternKey = Object.keys(schema.patternProperties)[0];
@@ -35,14 +34,14 @@ export const fakeRecord: FakerFn<TRecord> = (schema, ctx, options) => {
 /**
  * Generates a key for a record based on the key pattern
  */
-function generateRecordKey(schema: TRecord): string {
+function generateRecordKey(schema: TRecord, ctx: FakerContext): string {
   const keyPattern = Object.keys(schema.patternProperties)[0];
 
   // Handle numeric patterns
   if (keyPattern === '^(0|[1-9][0-9]*)$') {
-    return faker.number.int({ min: 0, max: 999 }).toString();
+    return ctx.faker.number.int({ min: 0, max: 999 }).toString();
   }
 
   // Default to random word for string keys
-  return faker.word.noun();
+  return ctx.faker.word.noun();
 }

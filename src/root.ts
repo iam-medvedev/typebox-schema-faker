@@ -34,8 +34,8 @@ import { fakeVoid } from './schema/void';
  * Root fake data generator
  * Routes schema types to their specific faker implementations
  */
-export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: FakerOptions): Static<T> {
-  const options: Required<FakerOptions> = {
+export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: Partial<FakerOptions>): Static<T> {
+  const options: FakerOptions = {
     maxDepth: 3,
     probability: 0.5,
     ...opts,

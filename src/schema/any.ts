@@ -1,11 +1,10 @@
 import type { TAny } from '@sinclair/typebox';
-import { faker } from '@faker-js/faker';
 import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for any schemas
  */
-export const fakeAny: FakerFn<TAny> = () => {
+export const fakeAny: FakerFn<TAny> = (_schema, { faker }) => {
   // Generate random data of various types
   const generators = [
     () => faker.string.alphanumeric(10),

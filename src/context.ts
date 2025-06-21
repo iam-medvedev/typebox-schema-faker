@@ -1,6 +1,9 @@
-import type { Context } from "./types";
+import type { FakerContext } from "./types";
 
-export function createContext(): Context {
+/**
+ * Creates a new faker context for tracking schema references and recursion depth
+ */
+export function createContext(): FakerContext {
   return {
     refs: new Map(),
     currentDepth: 0,

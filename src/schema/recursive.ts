@@ -1,7 +1,7 @@
 import { type TRecursive, type TSchema, TypeBoxError } from "@sinclair/typebox";
 import type { FakerFn } from "../types";
 import { rootFake } from "../root";
-import { unwrap } from "../utils";
+import { unwrap } from "../unwrap";
 
 /**
  * Generates fake data for recursive schemas

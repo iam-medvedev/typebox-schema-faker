@@ -5,7 +5,7 @@ import {
   TypeGuard,
   TypeBoxError,
 } from "@sinclair/typebox";
-import type { Context, Options } from "./types";
+import type { FakerContext, FakerOptions } from "./types";
 import { fakeAny } from "./schema/any";
 import { fakeArray } from "./schema/array";
 import { fakeBigInt } from "./schema/bigint";
@@ -36,15 +36,19 @@ import { fakeUnion } from "./schema/union";
 import { fakeUnknown } from "./schema/unknown";
 import { fakeVoid } from "./schema/void";
 
+/**
+ * Root fake data generator
+ * Routes schema types to their specific faker implementations
+ */
 export function rootFake<T extends TSchema>(
   schema: T,
-  ctx: Context,
-  _options: Options
+  ctx: FakerContext,
+  opts: FakerOptions
 ): Static<T> {
-  const options: Required<Options> = {
+  const options: Required<FakerOptions> = {
     maxDepth: 3,
     probability: 0.5,
-    ..._options,
+    ...opts,
   };
 
   if (TypeGuard.IsRecursive(schema)) {

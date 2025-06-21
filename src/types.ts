@@ -1,7 +1,12 @@
 import type { TSchema, Static } from "@sinclair/typebox";
 
-export type Options = {
+/**
+ * Faker configuration options
+ */
+export type FakerOptions = {
+  /** Chance (0-1) that optional fields are undefined (default: 0.5) */
   probability?: number;
+  /** Maximum recursion depth before stopping generation (default: 3) */
   maxDepth?: number;
 };
 
@@ -10,13 +15,18 @@ export type Options = {
  */
 export type FakerFn<T extends TSchema> = (
   schema: T,
-  ctx: Context,
-  options: Required<Options>
+  ctx: FakerContext,
+  options: Required<FakerOptions>
 ) => Static<T>;
 
 type SchemaID = string;
 
-export type Context = {
+/**
+ * Faker context for tracking schema references and recursion depth
+ */
+export type FakerContext = {
+  /** Map of schema IDs to their definitions for recursive resolution */
   refs: Map<SchemaID, TSchema>;
+  /** Current nesting level to prevent infinite recursion */
   currentDepth: number;
 };

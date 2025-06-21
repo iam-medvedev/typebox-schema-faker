@@ -1,6 +1,6 @@
-import type { TRegExp } from "@sinclair/typebox";
-import { randexp } from "randexp";
-import type { FakerFn } from "../types";
+import type { TRegExp } from '@sinclair/typebox';
+import { randexp } from 'randexp';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for RegExp schemas

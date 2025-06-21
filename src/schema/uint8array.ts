@@ -1,6 +1,6 @@
-import type { TUint8Array } from "@sinclair/typebox";
-import { faker } from "@faker-js/faker";
-import type { FakerFn } from "../types";
+import type { TUint8Array } from '@sinclair/typebox';
+import { faker } from '@faker-js/faker';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for Uint8Array schemas

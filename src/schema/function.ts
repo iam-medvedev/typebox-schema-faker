@@ -1,6 +1,6 @@
-import type { TFunction } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
-import { rootFake } from "../root";
+import type { TFunction } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
+import { rootFake } from '../root';
 
 /**
  * Generates fake data for function schemas

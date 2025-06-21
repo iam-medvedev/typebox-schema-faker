@@ -1,5 +1,5 @@
-import type { TNull } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
+import type { TNull } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for null schemas

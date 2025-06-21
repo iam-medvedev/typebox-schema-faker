@@ -1,6 +1,6 @@
-import type { TBoolean } from "@sinclair/typebox";
-import { faker } from "@faker-js/faker";
-import type { FakerFn } from "../types";
+import type { TBoolean } from '@sinclair/typebox';
+import { faker } from '@faker-js/faker';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for boolean schemas

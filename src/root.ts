@@ -1,50 +1,40 @@
-import {
-  type Static,
-  type TSchema,
-  Kind,
-  TypeGuard,
-  TypeBoxError,
-} from "@sinclair/typebox";
-import type { FakerContext, FakerOptions } from "./types";
-import { fakeAny } from "./schema/any";
-import { fakeArray } from "./schema/array";
-import { fakeBigInt } from "./schema/bigint";
-import { fakeBoolean } from "./schema/boolean";
-import { fakeDate } from "./schema/date";
-import { fakeFunction } from "./schema/function";
-import { fakeInteger } from "./schema/integer";
-import { fakeIntersect } from "./schema/intersect";
-import { fakeLiteral } from "./schema/literal";
-import { fakeNever } from "./schema/never";
-import { fakeNull } from "./schema/null";
-import { fakeNumber } from "./schema/number";
-import { fakeObject } from "./schema/object";
-import { fakeOptional } from "./schema/optional";
-import { fakePromise } from "./schema/promise";
-import { fakeReadonly } from "./schema/readonly";
-import { fakeRecord } from "./schema/record";
-import { fakeRecursive } from "./schema/recursive";
-import { fakeRegExp } from "./schema/regexp";
-import { fakeString } from "./schema/string";
-import { fakeSymbol } from "./schema/symbol";
-import { fakeTemplateLiteral } from "./schema/template-literal";
-import { fakeThis } from "./schema/this";
-import { fakeTuple } from "./schema/tuple";
-import { fakeUint8Array } from "./schema/uint8array";
-import { fakeUndefined } from "./schema/undefined";
-import { fakeUnion } from "./schema/union";
-import { fakeUnknown } from "./schema/unknown";
-import { fakeVoid } from "./schema/void";
+import { type Static, type TSchema, Kind, TypeGuard, TypeBoxError } from '@sinclair/typebox';
+import type { FakerContext, FakerOptions } from './types';
+import { fakeAny } from './schema/any';
+import { fakeArray } from './schema/array';
+import { fakeBigInt } from './schema/bigint';
+import { fakeBoolean } from './schema/boolean';
+import { fakeDate } from './schema/date';
+import { fakeFunction } from './schema/function';
+import { fakeInteger } from './schema/integer';
+import { fakeIntersect } from './schema/intersect';
+import { fakeLiteral } from './schema/literal';
+import { fakeNever } from './schema/never';
+import { fakeNull } from './schema/null';
+import { fakeNumber } from './schema/number';
+import { fakeObject } from './schema/object';
+import { fakeOptional } from './schema/optional';
+import { fakePromise } from './schema/promise';
+import { fakeReadonly } from './schema/readonly';
+import { fakeRecord } from './schema/record';
+import { fakeRecursive } from './schema/recursive';
+import { fakeRegExp } from './schema/regexp';
+import { fakeString } from './schema/string';
+import { fakeSymbol } from './schema/symbol';
+import { fakeTemplateLiteral } from './schema/template-literal';
+import { fakeThis } from './schema/this';
+import { fakeTuple } from './schema/tuple';
+import { fakeUint8Array } from './schema/uint8array';
+import { fakeUndefined } from './schema/undefined';
+import { fakeUnion } from './schema/union';
+import { fakeUnknown } from './schema/unknown';
+import { fakeVoid } from './schema/void';
 
 /**
  * Root fake data generator
  * Routes schema types to their specific faker implementations
  */
-export function rootFake<T extends TSchema>(
-  schema: T,
-  ctx: FakerContext,
-  opts: FakerOptions
-): Static<T> {
+export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: FakerOptions): Static<T> {
   const options: Required<FakerOptions> = {
     maxDepth: 3,
     probability: 0.5,

@@ -1,9 +1,9 @@
-import { describe, it, expect } from "bun:test";
-import { Type } from "@sinclair/typebox";
-import { fake } from "../../";
+import { describe, it, expect } from 'bun:test';
+import { Type } from '@sinclair/typebox';
+import { fake } from '../../';
 
-describe("fakeNull", () => {
-  it("always returns null", () => {
+describe('fakeNull', () => {
+  it('always returns null', () => {
     const schema = Type.Null();
     const result = fake(schema);
 

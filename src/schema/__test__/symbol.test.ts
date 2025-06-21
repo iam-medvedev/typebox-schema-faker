@@ -1,16 +1,16 @@
-import { describe, it, expect } from "bun:test";
-import { Type } from "@sinclair/typebox";
-import { fake } from "../../";
+import { describe, it, expect } from 'bun:test';
+import { Type } from '@sinclair/typebox';
+import { fake } from '../../';
 
-describe("fakeSymbol", () => {
-  it("generates Symbol values", () => {
+describe('fakeSymbol', () => {
+  it('generates Symbol values', () => {
     const schema = Type.Symbol();
     const result = fake(schema);
 
-    expect(typeof result).toBe("symbol");
+    expect(typeof result).toBe('symbol');
   });
 
-  it("generates unique symbols", () => {
+  it('generates unique symbols', () => {
     const schema = Type.Symbol();
     const results = Array.from({ length: 10 }, () => fake(schema));
 
@@ -26,32 +26,32 @@ describe("fakeSymbol", () => {
     }
   });
 
-  it("generates symbols with descriptions", () => {
+  it('generates symbols with descriptions', () => {
     const schema = Type.Symbol();
     const result = fake(schema);
 
     // Symbol should have a description
     expect(result.description).toBeDefined();
-    expect(typeof result.description).toBe("string");
+    expect(typeof result.description).toBe('string');
   });
 
-  it("works in objects", () => {
+  it('works in objects', () => {
     const schema = Type.Object({
       id: Type.Symbol(),
       name: Type.String(),
     });
     const result = fake(schema);
 
-    expect(typeof result.id).toBe("symbol");
-    expect(typeof result.name).toBe("string");
+    expect(typeof result.id).toBe('symbol');
+    expect(typeof result.name).toBe('string');
   });
 
-  it("works in arrays", () => {
+  it('works in arrays', () => {
     const schema = Type.Array(Type.Symbol(), { minItems: 3 });
     const result = fake(schema);
 
     expect(result.length).toBeGreaterThanOrEqual(3);
-    expect(result.every((item) => typeof item === "symbol")).toBe(true);
+    expect(result.every((item) => typeof item === 'symbol')).toBe(true);
 
     // All symbols in array should be unique
     const uniqueSymbols = new Set(result);

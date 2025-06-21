@@ -1,5 +1,5 @@
-import type { TUndefined } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
+import type { TUndefined } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for undefined schemas

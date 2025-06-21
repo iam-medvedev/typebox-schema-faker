@@ -1,4 +1,4 @@
-import type { FakerContext } from "./types";
+import type { FakerContext } from './types';
 
 /**
  * Creates a new faker context for tracking schema references and recursion depth

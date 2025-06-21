@@ -1,20 +1,16 @@
-import { type TRecursive, type TSchema, TypeBoxError } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
-import { rootFake } from "../root";
-import { unwrap } from "../unwrap";
+import { type TRecursive, type TSchema, TypeBoxError } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
+import { rootFake } from '../root';
+import { unwrap } from '../unwrap';
 
 /**
  * Generates fake data for recursive schemas
  */
-export const fakeRecursive: FakerFn<TRecursive<TSchema>> = (
-  schema,
-  ctx,
-  options
-) => {
+export const fakeRecursive: FakerFn<TRecursive<TSchema>> = (schema, ctx, options) => {
   const unwrapped = unwrap(schema);
   const id = unwrapped.$id;
   if (!id) {
-    throw new TypeBoxError("TRecursive schema must contain $id");
+    throw new TypeBoxError('TRecursive schema must contain $id');
   }
 
   // Cache ref

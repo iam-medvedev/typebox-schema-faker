@@ -1,6 +1,6 @@
-import type { TUnknown } from "@sinclair/typebox";
-import { faker } from "@faker-js/faker";
-import type { FakerFn } from "../types";
+import type { TUnknown } from '@sinclair/typebox';
+import { faker } from '@faker-js/faker';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for unknown schemas

@@ -1,5 +1,5 @@
-import type { TLiteral } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
+import type { TLiteral } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for literal schemas

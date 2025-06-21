@@ -1,7 +1,7 @@
-import type { TUnion } from "@sinclair/typebox";
-import { faker } from "@faker-js/faker";
-import type { FakerFn } from "../types";
-import { rootFake } from "../root";
+import type { TUnion } from '@sinclair/typebox';
+import { faker } from '@faker-js/faker';
+import type { FakerFn } from '../types';
+import { rootFake } from '../root';
 
 /**
  * Generates fake data for union schemas

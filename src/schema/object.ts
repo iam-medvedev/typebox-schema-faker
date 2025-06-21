@@ -1,7 +1,7 @@
-import type { TObject } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
-import { rootFake } from "../root";
-import { EmptyRecursiveItem } from "../symbols";
+import type { TObject } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
+import { rootFake } from '../root';
+import { EmptyRecursiveItem } from '../symbols';
 
 /**
  * Generates fake data for object schemas

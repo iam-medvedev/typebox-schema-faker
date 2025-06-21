@@ -1,5 +1,5 @@
-import type { TVoid } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
+import type { TVoid } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for void schemas

@@ -34,8 +34,8 @@ yarn add -D typebox-schema-faker @sinclair/typebox
 ### Basic Usage
 
 ```ts
-import { Type } from "@sinclair/typebox";
-import { fake } from "typebox-schema-faker";
+import { Type } from '@sinclair/typebox';
+import { fake } from 'typebox-schema-faker';
 
 // Simple types
 const name = fake(Type.String({ minLength: 3, maxLength: 10 }));
@@ -48,10 +48,10 @@ const isActive = fake(Type.Boolean());
 // true
 
 // Formatted strings
-const email = fake(Type.String({ format: "email" }));
+const email = fake(Type.String({ format: 'email' }));
 // "john.doe@example.com"
 
-const uuid = fake(Type.String({ format: "uuid" }));
+const uuid = fake(Type.String({ format: 'uuid' }));
 // "550e8400-e29b-41d4-a716-446655440000"
 ```
 
@@ -59,9 +59,9 @@ const uuid = fake(Type.String({ format: "uuid" }));
 
 ```ts
 const userSchema = Type.Object({
-  id: Type.String({ format: "uuid" }),
+  id: Type.String({ format: 'uuid' }),
   name: Type.String({ minLength: 2, maxLength: 50 }),
-  email: Type.String({ format: "email" }),
+  email: Type.String({ format: 'email' }),
   age: Type.Integer({ minimum: 18, maximum: 100 }),
   isActive: Type.Boolean(),
   tags: Type.Array(Type.String(), { minItems: 1, maxItems: 5 }),
@@ -69,7 +69,7 @@ const userSchema = Type.Object({
     Type.Object({
       created: Type.Date(),
       lastLogin: Type.Optional(Type.Date()),
-    })
+    }),
   ),
 });
 
@@ -93,13 +93,7 @@ const numbers = fake(Type.Array(Type.Number(), { minItems: 3, maxItems: 6 }));
 // [42.5, 17.8, 93.2, 11.7]
 
 // Union types
-const status = fake(
-  Type.Union([
-    Type.Literal("active"),
-    Type.Literal("inactive"),
-    Type.Literal("pending"),
-  ])
-);
+const status = fake(Type.Union([Type.Literal('active'), Type.Literal('inactive'), Type.Literal('pending')]));
 // "active"
 
 // Tuples
@@ -117,7 +111,7 @@ const treeNodeSchema = Type.Recursive(
       name: Type.String(),
       children: Type.Array(This, { minItems: 0, maxItems: 3 }),
     }),
-  { $id: "TreeNode" }
+  { $id: 'TreeNode' },
 );
 
 const tree = fake(treeNodeSchema);
@@ -203,9 +197,7 @@ const phonePattern = fake(Type.RegExp(/^\+?[\d\s\-\(\)]{10,}$/));
 const emailPattern = fake(Type.RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/));
 // "user@domain.com"
 
-const uuidPattern = fake(
-  Type.RegExp(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)
-);
+const uuidPattern = fake(Type.RegExp(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i));
 // "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
 ```
 

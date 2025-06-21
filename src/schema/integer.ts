@@ -1,6 +1,6 @@
-import type { TInteger } from "@sinclair/typebox";
-import { faker } from "@faker-js/faker";
-import type { FakerFn } from "../types";
+import type { TInteger } from '@sinclair/typebox';
+import { faker } from '@faker-js/faker';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for integer schemas

@@ -1,6 +1,6 @@
-import type { TDate } from "@sinclair/typebox";
-import { faker } from "@faker-js/faker";
-import type { FakerFn } from "../types";
+import type { TDate } from '@sinclair/typebox';
+import { faker } from '@faker-js/faker';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for date schemas

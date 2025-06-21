@@ -8,7 +8,7 @@ import {
   Hint,
   CloneType,
   TypeGuard,
-} from "@sinclair/typebox";
+} from '@sinclair/typebox';
 
 /**
  * Removes wrapper types from a schema to access the inner type

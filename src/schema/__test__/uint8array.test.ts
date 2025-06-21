@@ -1,9 +1,9 @@
-import { describe, it, expect } from "bun:test";
-import { Type } from "@sinclair/typebox";
-import { fake } from "../../";
+import { describe, it, expect } from 'bun:test';
+import { Type } from '@sinclair/typebox';
+import { fake } from '../../';
 
-describe("fakeUint8Array", () => {
-  it("generates Uint8Array instance", () => {
+describe('fakeUint8Array', () => {
+  it('generates Uint8Array instance', () => {
     const schema = Type.Uint8Array();
     const result = fake(schema);
 
@@ -11,21 +11,21 @@ describe("fakeUint8Array", () => {
     expect(result.length).toBeGreaterThan(0);
   });
 
-  it("respects minByteLength constraint", () => {
+  it('respects minByteLength constraint', () => {
     const schema = Type.Uint8Array({ minByteLength: 10 });
     const result = fake(schema);
 
     expect(result.length).toBeGreaterThanOrEqual(10);
   });
 
-  it("respects maxByteLength constraint", () => {
+  it('respects maxByteLength constraint', () => {
     const schema = Type.Uint8Array({ maxByteLength: 20 });
     const result = fake(schema);
 
     expect(result.length).toBeLessThanOrEqual(20);
   });
 
-  it("generates array within byte length range", () => {
+  it('generates array within byte length range', () => {
     const schema = Type.Uint8Array({ minByteLength: 5, maxByteLength: 10 });
     const results = Array.from({ length: 20 }, () => fake(schema));
 
@@ -39,7 +39,7 @@ describe("fakeUint8Array", () => {
     expect(lengths.size).toBeGreaterThan(1);
   });
 
-  it("generates valid byte values (0-255)", () => {
+  it('generates valid byte values (0-255)', () => {
     const schema = Type.Uint8Array({ minByteLength: 100 });
     const result = fake(schema);
 
@@ -50,7 +50,7 @@ describe("fakeUint8Array", () => {
     }
   });
 
-  it("generates different arrays each time", () => {
+  it('generates different arrays each time', () => {
     const schema = Type.Uint8Array({ minByteLength: 10, maxByteLength: 10 });
     const result1 = fake(schema);
     const result2 = fake(schema);
@@ -69,7 +69,7 @@ describe("fakeUint8Array", () => {
     expect(hasDifference).toBe(true);
   });
 
-  it("handles zero length", () => {
+  it('handles zero length', () => {
     const schema = Type.Uint8Array({ minByteLength: 0, maxByteLength: 0 });
     const result = fake(schema);
 
@@ -77,7 +77,7 @@ describe("fakeUint8Array", () => {
     expect(result).toBeInstanceOf(Uint8Array);
   });
 
-  it("can be converted to buffer operations", () => {
+  it('can be converted to buffer operations', () => {
     const schema = Type.Uint8Array({ minByteLength: 4, maxByteLength: 4 });
     const result = fake(schema);
 

@@ -1,6 +1,6 @@
-import { type TThis, type Static, TypeBoxError } from "@sinclair/typebox";
-import type { FakerFn } from "../types";
-import { rootFake } from "../root";
+import { type TThis, type Static, TypeBoxError } from '@sinclair/typebox';
+import type { FakerFn } from '../types';
+import { rootFake } from '../root';
 
 /**
  * Generates fake data for This schemas
@@ -8,7 +8,7 @@ import { rootFake } from "../root";
 export const fakeThis: FakerFn<TThis> = (schema, ctx, options) => {
   const ref = schema.$ref;
   if (!ref) {
-    throw new TypeBoxError("TThis schema must contain $ref");
+    throw new TypeBoxError('TThis schema must contain $ref');
   }
 
   const refSchema = ctx.refs.get(ref);

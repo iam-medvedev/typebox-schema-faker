@@ -1,1 +1,1 @@
-export const EmptyRecursiveItem = Symbol.for("TypeBoxFaker.EmptyRecursiveItem");
+export const EmptyRecursiveItem = Symbol.for('TypeBoxFaker.EmptyRecursiveItem');

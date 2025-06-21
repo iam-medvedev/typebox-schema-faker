@@ -1,7 +1,32 @@
 {
   "name": "typebox-schema-faker",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Generate fake data from TypeBox schemas for testing, prototyping and development.",
+  "repository": "https://github.com/iam-medvedev/typebox-schema-faker.git",
+  "homepage": "https://github.com/iam-medvedev/typebox-schema-faker#readme",
+  "bugs": "https://github.com/iam-medvedev/typebox-schema-faker/issues",
+  "author": "Ilya Medvedev <ilya@medvedev.im>",
+  "license": "MIT",
+  "main": "build/cjs.js",
+  "module": "build/esm.mjs",
+  "types": "build/src/index.d.ts",
+  "files": [
+    "build/*",
+    "package.json"
+  ],
+  "exports": {
+    "import": {
+      "types": "./build/src/index.d.ts",
+      "default": "./build/esm.mjs"
+    },
+    "require": {
+      "types": "./build/src/index.d.ts",
+      "default": "./build/cjs.js"
+    }
+  },
   "scripts": {
+    "prepare": "husky",
     "types": "tsc --noEmit"
   },
   "dependencies": {
@@ -11,9 +36,32 @@
   "devDependencies": {
     "@sinclair/typebox": "^0.34.35",
     "@types/bun": "^1.2.16",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.5.3",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@sinclair/typebox": "^0.34.35"
+    "@sinclair/typebox": ">=0.34.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

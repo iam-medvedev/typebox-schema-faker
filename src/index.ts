@@ -1,7 +1,7 @@
-import type { Static, TSchema } from "@sinclair/typebox";
-import { createContext } from "./context";
-import { rootFake } from "./root";
-import type { FakerOptions } from "./types";
+import type { Static, TSchema } from '@sinclair/typebox';
+import { createContext } from './context';
+import { rootFake } from './root';
+import type { FakerOptions } from './types';
 
 /**
  * Generates fake data matching the provided TypeBox schema
@@ -17,9 +17,6 @@ import type { FakerOptions } from "./types";
  * fake(nameSchema); // "a7B9x2"
  * ```
  */
-export function fake<T extends TSchema>(
-  schema: T,
-  options: FakerOptions = {}
-): Static<T> {
+export function fake<T extends TSchema>(schema: T, options: FakerOptions = {}): Static<T> {
   return rootFake(schema, createContext(), options);
 }

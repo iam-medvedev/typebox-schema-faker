@@ -1,6 +1,6 @@
-import type { TString } from "@sinclair/typebox";
-import { faker } from "@faker-js/faker";
-import type { FakerFn } from "../types";
+import type { TString } from '@sinclair/typebox';
+import { faker } from '@faker-js/faker';
+import type { FakerFn } from '../types';
 
 /**
  * Generates fake data for string schemas
@@ -8,13 +8,13 @@ import type { FakerFn } from "../types";
 export const fakeString: FakerFn<TString> = (schema) => {
   if (schema.format) {
     switch (schema.format) {
-      case "email":
+      case 'email':
         return faker.internet.email();
-      case "uuid":
+      case 'uuid':
         return faker.string.uuid();
-      case "url":
+      case 'url':
         return faker.internet.url();
-      case "date-time":
+      case 'date-time':
         return faker.date.recent().toISOString();
       default:
         break;

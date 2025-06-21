@@ -1,4 +1,4 @@
-import type { TSchema, Static } from "@sinclair/typebox";
+import type { TSchema, Static } from '@sinclair/typebox';
 
 /**
  * Faker configuration options
@@ -13,11 +13,7 @@ export type FakerOptions = {
 /**
  * Generic faker function type that takes a TypeBox schema and returns its static type
  */
-export type FakerFn<T extends TSchema> = (
-  schema: T,
-  ctx: FakerContext,
-  options: Required<FakerOptions>
-) => Static<T>;
+export type FakerFn<T extends TSchema> = (schema: T, ctx: FakerContext, options: Required<FakerOptions>) => Static<T>;
 
 type SchemaID = string;
 

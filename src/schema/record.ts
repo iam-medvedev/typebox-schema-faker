@@ -1,12 +1,12 @@
 import { type TRecord, TypeBoxError } from "@sinclair/typebox";
 import { faker } from "@faker-js/faker";
 import type { FakerFn } from "../types";
-import { fake } from "../";
+import { rootFake } from "../root";
 
 /**
  * Generates fake data for record schemas
  */
-export const fakeRecord: FakerFn<TRecord> = (schema) => {
+export const fakeRecord: FakerFn<TRecord> = (schema, ctx, options) => {
   const result: any = {};
 
   // Generate X random entries
@@ -26,7 +26,7 @@ export const fakeRecord: FakerFn<TRecord> = (schema) => {
       throw new TypeBoxError("Cannot fake TRecord type");
     }
 
-    result[key] = fake(patternSchema);
+    result[key] = rootFake(patternSchema, ctx, options);
   }
 
   return result;

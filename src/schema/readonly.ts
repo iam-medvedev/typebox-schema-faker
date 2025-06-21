@@ -1,13 +1,11 @@
-import { type TReadonly, CloneType, ReadonlyKind } from "@sinclair/typebox";
+import type { TReadonly } from "@sinclair/typebox";
 import type { FakerFn } from "../types";
-import { fake } from "..";
+import { rootFake } from "../root";
+import { unwrap } from "../utils";
 
 /**
  * Generates fake data for readonly schemas
  */
-export const fakeReadonly: FakerFn<TReadonly<any>> = (schema) => {
-  const clone = CloneType(schema);
-  delete clone[ReadonlyKind];
-
-  return Object.freeze(fake(clone));
+export const fakeReadonly: FakerFn<TReadonly<any>> = (schema, ctx, options) => {
+  return Object.freeze(rootFake(unwrap(schema), ctx, options));
 };

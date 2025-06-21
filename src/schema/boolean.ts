@@ -5,6 +5,6 @@ import type { FakerFn } from "../types";
 /**
  * Generates fake data for boolean schemas
  */
-export const fakeBoolean: FakerFn<TBoolean> = () => {
-  return faker.datatype.boolean();
+export const fakeBoolean: FakerFn<TBoolean> = (_schema, _ctx, options) => {
+  return faker.datatype.boolean({ probability: options.probability });
 };

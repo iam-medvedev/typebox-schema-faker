@@ -1,15 +1,15 @@
 import type { TIntersect } from "@sinclair/typebox";
 import type { FakerFn } from "../types";
-import { fake } from "../";
+import { rootFake } from "../root";
 
 /**
  * Generates fake data for intersect schemas
  */
-export const fakeIntersect: FakerFn<TIntersect> = (schema) => {
+export const fakeIntersect: FakerFn<TIntersect> = (schema, ctx, options) => {
   let result = {};
 
   for (const subSchema of schema.allOf) {
-    const generated = fake(subSchema);
+    const generated = rootFake(subSchema, ctx, options);
 
     // Only merge if it's an object (intersect typically uses objects)
     if (

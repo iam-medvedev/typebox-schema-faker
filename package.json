@@ -1,7 +1,6 @@
 {
   "name": "typebox-schema-faker",
   "version": "1.0.0",
-  "type": "module",
   "description": "Generate fake data from TypeBox schemas for testing, prototyping and development.",
   "repository": "https://github.com/iam-medvedev/typebox-schema-faker.git",
   "homepage": "https://github.com/iam-medvedev/typebox-schema-faker#readme",
@@ -12,14 +11,25 @@
     "dist/*",
     "package.json"
   ],
+  "keywords": [
+    "typebox",
+    "fake",
+    "data",
+    "schema",
+    "generator",
+    "faker",
+    "json",
+    "sinclair"
+  ],
   "exports": {
     "types": "./dist/index.d.ts",
     "default": "./dist/index.js"
   },
   "scripts": {
     "build": "rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.dist.json",
-    "commit": "yarn git-cz",
+    "commit": "git-cz",
     "prepare": "husky",
+    "release": "semantic-release",
     "types": "tsc --noEmit"
   },
   "dependencies": {
@@ -27,6 +37,11 @@
     "randexp": "^0.5.3"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/github": "^11.0.3",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.3",
     "@sinclair/typebox": "^0.34.35",
     "@types/bun": "^1.2.16",
     "cz-conventional-changelog": "^3.3.0",
@@ -34,6 +49,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
+    "semantic-release": "^24.2.5",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

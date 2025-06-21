@@ -56,14 +56,8 @@ export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: 
   if (TypeGuard.IsAny(schema)) {
     return fakeAny(schema, ctx, options);
   }
-  if (TypeGuard.IsArgument(schema)) {
-    // return fakeArgument(schema, ctx, options);
-  }
   if (TypeGuard.IsArray(schema)) {
     return fakeArray(schema, ctx, options);
-  }
-  if (TypeGuard.IsAsyncIterator(schema)) {
-    // return fakeAsyncIterator(schema, ctx, options);
   }
   if (TypeGuard.IsBigInt(schema)) {
     return fakeBigInt(schema, ctx, options);
@@ -71,53 +65,23 @@ export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: 
   if (TypeGuard.IsBoolean(schema)) {
     return fakeBoolean(schema, ctx, options);
   }
-  if (TypeGuard.IsComputed(schema)) {
-    // return fakeComputed(schema, ctx, options);
-  }
-  if (TypeGuard.IsConstructor(schema)) {
-    // return fakeConstructor(schema, ctx, options);
-  }
   if (TypeGuard.IsDate(schema)) {
     return fakeDate(schema, ctx, options);
   }
   if (TypeGuard.IsFunction(schema)) {
     return fakeFunction(schema, ctx, options);
   }
-  if (TypeGuard.IsImport(schema)) {
-    // return fakeImport(schema, ctx, options);
-  }
   if (TypeGuard.IsInteger(schema)) {
     return fakeInteger(schema, ctx, options);
-  }
-  if (TypeGuard.IsProperties(schema)) {
-    // return fakeProperties(schema, ctx, options);
   }
   if (TypeGuard.IsIntersect(schema)) {
     return fakeIntersect(schema, ctx, options);
   }
-  if (TypeGuard.IsIterator(schema)) {
-    // return fakeIterator(schema, ctx, options);
-  }
-  // if (TypeGuard.IsKindOf(schema)) {
-  //   // return fakeKindOf(schema, ctx, options);
-  // }
   if (TypeGuard.IsLiteral(schema)) {
     return fakeLiteral(schema, ctx, options);
   }
-  if (TypeGuard.IsLiteralValue(schema)) {
-    // return fakeLiteralValue(schema, ctx, options);
-  }
-  if (TypeGuard.IsMappedKey(schema)) {
-    // return fakeMappedKey(schema, ctx, options);
-  }
-  if (TypeGuard.IsMappedResult(schema)) {
-    // return fakeMappedResult(schema, ctx, options);
-  }
   if (TypeGuard.IsNever(schema)) {
     return fakeNever(schema, ctx, options);
-  }
-  if (TypeGuard.IsNot(schema)) {
-    // return fakeNot(schema, ctx, options);
   }
   if (TypeGuard.IsNull(schema)) {
     return fakeNull(schema, ctx, options);
@@ -134,9 +98,6 @@ export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: 
   if (TypeGuard.IsRecord(schema)) {
     return fakeRecord(schema, ctx, options);
   }
-  if (TypeGuard.IsRef(schema)) {
-    // return fakeRef(schema, ctx, options);
-  }
   if (TypeGuard.IsRegExp(schema)) {
     return fakeRegExp(schema, ctx, options);
   }
@@ -148,9 +109,6 @@ export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: 
   }
   if (TypeGuard.IsTemplateLiteral(schema)) {
     return fakeTemplateLiteral(schema, ctx, options);
-  }
-  if (TypeGuard.IsTransform(schema)) {
-    // return fakeTransform(schema, ctx, options);
   }
   if (TypeGuard.IsTuple(schema)) {
     return fakeTuple(schema, ctx, options);
@@ -167,18 +125,9 @@ export function rootFake<T extends TSchema>(schema: T, ctx: FakerContext, opts: 
   if (TypeGuard.IsUnknown(schema)) {
     return fakeUnknown(schema, ctx, options);
   }
-  // if (TypeGuard.IsUnsafe(schema)) {
-  //   // return fakeUnsafe(schema, ctx, options);
-  // }
   if (TypeGuard.IsVoid(schema)) {
     return fakeVoid(schema, ctx, options);
   }
-  // if (TypeGuard.IsKind(schema)) {
-  //   // return fakeKind(schema, ctx, options);
-  // }
-  // if (TypeGuard.IsSchema(schema)) {
-  //   // return fakeSchema(schema, ctx, options);
-  // }
 
-  throw new TypeBoxError(`Unknown schema type: ${schema[Kind]}`);
+  throw new TypeBoxError(`Unknown or unsupported schema type: ${schema[Kind]}`);
 }

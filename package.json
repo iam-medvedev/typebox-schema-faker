@@ -7,6 +7,8 @@
   "bugs": "https://github.com/iam-medvedev/typebox-schema-faker/issues",
   "author": "Ilya Medvedev <ilya@medvedev.im>",
   "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist/*",
     "package.json"

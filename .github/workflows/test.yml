@@ -1,0 +1,27 @@
+name: test
+
+on: push
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: '.bun-version'
+
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Check types
+        run: bun run types
+
+      - name: Test
+        run: bun test

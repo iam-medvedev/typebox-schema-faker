@@ -1,7 +1,9 @@
 {
   "name": "typebox-schema-faker",
-  "module": "src/index.ts",
   "type": "module",
+  "scripts": {
+    "types": "tsc --noEmit"
+  },
   "dependencies": {
     "@faker-js/faker": "^9.8.0",
     "randexp": "^0.5.3"

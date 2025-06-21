@@ -1,5 +1,5 @@
 import { describe, it, expect } from "bun:test";
-import { Type, Kind, ReadonlyKind, TypeGuard } from "@sinclair/typebox";
+import { Type, Kind, TypeGuard } from "@sinclair/typebox";
 import { unwrap } from "../unwrap";
 
 describe("unwrap", () => {

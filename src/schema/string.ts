@@ -1,5 +1,4 @@
 import { type TString, type StringFormatOption, TypeBoxError } from '@sinclair/typebox';
-import { randexp } from 'randexp';
 import type { FakerFn } from '../types';
 
 type ExtractStringFormatOptions<T> = T extends string ? (string extends T ? never : T) : never;
@@ -44,7 +43,7 @@ export const fakeString: FakerFn<TString> = (schema, ctx) => {
         return `${ctx.faker.number.int({ min: 0, max: 5 })}/${ctx.faker.lorem.word()}`;
       case 'regex':
         if (schema.pattern) {
-          return randexp(schema.pattern);
+          return ctx.randexp(schema.pattern);
         } else {
           throw new TypeBoxError('Cannot create regex TString without pattern');
         }

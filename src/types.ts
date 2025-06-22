@@ -30,4 +30,6 @@ export interface FakerContext {
   currentDepth: number;
   /** Faker.js instance */
   faker: Faker;
+  /** Regexp randomizer */
+  randexp(pattern: string, flags?: string): string;
 }

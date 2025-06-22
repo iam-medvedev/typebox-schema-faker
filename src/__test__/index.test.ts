@@ -26,7 +26,6 @@ describe('fake', () => {
   it('generates fake with seed', () => {
     const seed = Math.random();
     const results = Array.from({ length: 20 }, () => fake(schema, { seed }));
-    const firstEl = results[0]?.string;
-    expect(results.every((el) => el.string === firstEl)).toEqual(true);
+    expect(results.every((el) => el.string === results[0]?.string)).toEqual(true);
   });
 });

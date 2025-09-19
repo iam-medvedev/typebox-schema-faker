@@ -35,21 +35,21 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.9.0",
+    "@faker-js/faker": "^10.0.0",
     "randexp": "^0.5.3"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/github": "^11.0.4",
+    "@semantic-release/github": "^11.0.6",
     "@semantic-release/npm": "^12.0.2",
-    "@semantic-release/release-notes-generator": "^14.0.3",
-    "@sinclair/typebox": "^0.34.40",
-    "@types/bun": "^1.2.20",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "@sinclair/typebox": "^0.34.41",
+    "@types/bun": "^1.2.22",
     "cz-conventional-changelog": "^3.3.0",
     "git-cz": "^4.9.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.5",
+    "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
     "semantic-release": "^24.2.7",
     "typescript": "^5.9.2"

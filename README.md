@@ -1,3 +1,10 @@
+[![License](https://img.shields.io/github/license/iam-medvedev/typebox-schema-faker)](https://opensource.org/license/mit)
+[![Bun](https://img.shields.io/badge/Bun-000?logo=bun&logoColor=fff)](http://bun.sh)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+[![npm version](https://badge.fury.io/js/typebox-schema-faker.svg)](https://www.npmjs.com/package/typebox-schema-faker)
+[![npm downloads](https://img.shields.io/npm/dt/typebox-schema-faker.svg)](https://www.npmjs.com/package/typebox-schema-faker)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 # TypeBox Schema Faker
 
 Generate fake data from [TypeBox](https://github.com/sinclairzx81/typebox) schemas for testing, prototyping and development.
